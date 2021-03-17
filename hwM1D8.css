@@ -1,0 +1,14 @@
+.yellBg {
+    background-color: yellowgreen;
+}
+
+.borderLi {
+    border: solid;
+    border-color: grey;
+    font-size: 20px;
+}
+
+.bigButton {
+    height: 35px;
+    width: 180px;
+}

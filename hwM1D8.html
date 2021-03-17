@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<!-- saved from url=(0436)https://s3.eu-west-1.amazonaws.com/eduflow-production/activity-resources/141421607213223.html?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIA2TAWW44RDWPS6YGR%2F20210317%2Feu-west-1%2Fs3%2Faws4_request&X-Amz-Date=20210317T125611Z&X-Amz-Expires=600&X-Amz-SignedHeaders=host&response-content-disposition=inline%3B%20filename%2A%3DUTF-8%27%27M1-D8.html&X-Amz-Signature=99990ce492980f4c8a5acd2b4b711a72b642caebeacd8f7601482aa47c609b84 -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    <!-- EXERCISE 1:
+    Specify the title, the charset (UTF-8) and the viewport of the page.
+    -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TASK LIST</title>
+    <link rel="stylesheet" href="hwM1D8.css">
+    <style>
+      /* EXERCISE 2:  
+       Create a CSS class for the task list with a diverse background
+       Create a CSS class for the task list item with a border, a bold text and a bigger font size
+       Style every button of the page to be bigger
+    */
+    </style>
+  </head>
+  <body>
+    <h1>Welcome to your personal Task List!</h1>
+    <br>
+
+    <span>You can add any task you like by writing it in the specified field and
+      then press "Add new task"</span><br><br>
+
+    <input type="text" id="newTask">
+    <input type="button" class="bigButton" value="Add new Task" onclick="addNewTask()">
+    
+    <!-- EXERCISE 3
+        Create a button "Remove Last Task" to trigger the method "removeLast"
+    -->
+    
+    <input type="button" class="bigButton" value="Remove Last Task" onclick="removeLast()">
+
+    <!-- EXERCISE 4
+        Create a button "Remove First Task" to trigger the method "removeFirst"
+    -->
+    
+    <input type="button" class="bigButton" value="Remove First Task" onclick="removeFirst()">
+    
+    <input type="button" class="bigButton" value="Log Task" onclick="getTasksAsArray()">
+    
+    <ul id="myTaskList" class="yellBg">
+    </ul>
+
+    <hr>
+
+    <input type="color" placeholder="Color" id="colorPicker">
+    <input type="button" class="bigButton" value="Change task background" onclick="changeTaskBackgroundColor()">
+
+    <hr>
+
+    <input type="button" value="Sort" onclick="bubblesort()">
+
+    <script>
+      /* EXERCISE 5: 
+                Add a new task to the list.
+                Suggestion:
+                - Use document.getElementById to get the UL item and the input text
+                - Use the document.createElement to create the new List Item
+                - Append the child to the UL */
+        
+            const taskList = document.querySelector('#myTaskList')
+                
+            const addNewTask = (e) => {                   
+                const newItem = document.createElement('li')
+                newItem.innerText = document.querySelector('#newTask').value
+                taskList.appendChild(newItem)
+            }
+
+      /* EXERCISE 6: 
+                Create a method "removeLast" which removes the last item from the task list
+            */
+
+            const removeLast = (e) => {
+                taskList.lastElementChild.remove()
+            }
+                      
+            /* EXERCISE 7: 
+            Create a method "removeFirst" which removes the first item from the task list
+            */
+           
+            const removeFirst = (e) => {
+               taskList.firstElementChild.remove()
+           }
+            
+      /* EXERCISE 8: 
+               Create a method "getTasksAsArray" which returns, and prints to the console an array containing the tasks as string
+            */
+            
+            const getTasksAsArray = () => {
+                const arrLi = document.querySelectorAll('li')
+                const newArr = []
+                arrLi.forEach(x => newArr.push(x.innerHTML))
+                console.log(newArr)
+            }
+            
+      /* EXERCISE 9:
+               Create a method "changeTaskBackgroundColor" which takes the color from the color picker with an 
+               onchange event listener ad applies it as background to every list item
+            */
+            const liElems = document.querySelectorAll('li')
+           
+            const changeTaskBackgroundColor = (e) => {
+                newCol = document.querySelector('#colorPicker').value 
+                liElems.forEach( x => x.style.backgroundColor = newCol )     
+            }
+
+      /* EXTRA */
+
+      /* EXERCISE 10: 
+               Create a method "bubbleSort()" which sort the task list alphabetically using the bubble sort algorithm
+            
+               Use your spare time to beautify your task list via CSS.
+
+               Suggestion:
+               - Break the code into many function for semplicity 
+               - Reuse the functions previously created
+            */
+    </script>
+  
+
+</body></html>
